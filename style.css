@@ -1,0 +1,76 @@
+body {
+    background-color: #ff0040;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+.container {
+    background: #ffcccc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    display: inline-block;
+    margin-top: 50px;
+}
+h1 {
+    color: #b30000;
+}
+.botao {
+    background-color: #ff6666;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.botao:hover {
+    background-color: #cc0000;
+    transform: scale(1.1);
+}
+.contador {
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #b30000;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+}
+.contador.show {
+    opacity: 1;
+    transform: scale(1);
+    animation: brilho 2s infinite alternate;
+}
+@keyframes brilho {
+    0% { text-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5); }
+    100% { text-shadow: 0px 0px 20px rgba(255, 0, 0, 1); }
+}
+.album-container {
+    display: none;
+    margin-top: 20px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+.album-container.show {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 1;
+    transform: scale(1);
+}
+.album-container img {
+    width: 380px;
+    height: auto;
+    margin: 15px;
+    border-radius: 15px;
+    box-shadow: 15px 15px 35px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 1.8s ease-in-out, transform 1.8s ease-in-out;
+}
+.album-container.show img {
+    opacity: 1;
+    transform: scale(1);
+}

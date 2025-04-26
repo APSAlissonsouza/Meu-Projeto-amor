@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tempo de Amor ❤️</title>
+    <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+
+    <div class="container">
+        <h1>Nosso Amor ❤️</h1>
+        <div class="saudacao" id="mensagemSaudacao">Olá, Alisson e Juliana!</div>
+        
+        <button class="botao" onclick="mostrarTempoNamoro()">Nosso Tempo de Namoro</button>
+        <button class="botao" onclick="mostrarTempoNoivado()">Nosso Tempo de Noivado</button>
+        <button class="botao" onclick="mostrarAlbum()">Álbum de Amor 📸</button>
+        
+        <div id="contadorNamoro" class="contador"></div>
+        <div id="contadorNoivado" class="contador"></div>
+        <div id="album" class="album-container">
+            <img src="Imagens/Igreja.jpg" alt="Momentos Felizes">
+            <img src="Imagens/Noivado.jpg" alt="Nosso Dia Especial">
+            <img src="Imagens/Pedido de casamento.jpg" alt="Amor Verdadeiro">
+            <img src="Imagens/Noivado 1.jpg" alt="Nosso Dia Especial">
+            <img src="Imagens/noivado 2.jpg" alt="Nosso Dia Especial">
+            <img src="Imagens/noivado 3.jpg" alt="Nosso Dia Especial">
+        </div>
+    </div>
+
+    <script>
+        const dataNamoro = new Date(2023, 9, 2); 
+        const dataNoivado = new Date(2025, 3, 5);
+
+        function calcularTempo(data) {
+            const agora = new Date();
+            const diferenca = agora - data;
+
+            const anos = Math.floor(diferenca / (1000 * 60 * 60 * 24 * 365));
+            const meses = Math.floor((diferenca % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+            const dias = Math.floor((diferenca % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+            return `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos`;
+        }
+
+        function mostrarTempoNamoro() {
+            atualizarContador("contadorNamoro", dataNamoro);
+        }
+
+        function mostrarTempoNoivado() {
+            atualizarContador("contadorNoivado", dataNoivado);
+        }
+
+        function atualizarContador(id, data) {
+            function atualizar() {
+                const contador = document.getElementById(id);
+                contador.textContent = `Tempo juntos: ${calcularTempo(data)}`;
+                contador.classList.add("show");
+            }
+            atualizar();
+            setInterval(atualizar, 1000);
+        }
+
+        function mostrarAlbum() {
+            const album = document.getElementById("album");
+            album.style.display = "flex";
+            setTimeout(() => {
+                album.classList.add("show");
+            }, 100);
+        }
+    </script>
+
+</body>
+</html>
