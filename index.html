@@ -1,22 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>❤️ Amor de Alisson e Juliana ❤️</title>
     <link rel="stylesheet" href="style.css">
-  
 </head>
 <body>
 
     <div class="container">
-        <h1>❤️ Nosso História de Amor ❤️</h1>
+        <h1>❤️ Nossa História de Amor ❤️</h1>
         <div class="saudacao" id="mensagemSaudacao">Olá, Alisson e Juliana!</div>
-        
-        <button class="botao" onclick="mostrarTempoNamoro()">Nosso Tempo de Namoro</button>
-        <button class="botao" onclick="mostrarTempoNoivado()">Nosso Tempo de Noivado</button>
-        <button class="botao" onclick="mostrarAlbum()">Álbum de Amor 📸</button>
-        
+
+        <div class="botoes-container">
+            <button class="botao" onclick="mostrarTempoNamoro()">Nosso Tempo de Namoro</button>
+            <div class="grupo-direito">
+                <button class="botao" onclick="mostrarTempoNoivado()">Nosso Tempo de Noivado</button>
+                <button class="botao" onclick="mostrarAlbum()">Álbum de Amor 📸</button>
+                <button class="botao-musica" onclick="tocarMusica()">▶ Tocar Música</button>
+            </div>
+        </div>
+
         <div id="contadorNamoro" class="contador"></div>
         <div id="contadorNoivado" class="contador"></div>
+
         <div id="album" class="album-container">
             <img src="Imagens/Igreja.jpg" alt="Momentos Felizes">
             <img src="Imagens/Noivado.jpg" alt="Nosso Dia Especial">
@@ -29,52 +36,24 @@
             <img src="imagens/noivo.png" alt="Nosso Dia Especial">
             <img src="imagens/Noiva e o buque.png" alt="Nosso Dia Especial">
         </div>
+
+       <audio id="player" controls style="display: none;">
+    <source id="audio-source" src="musicas/Brian McKnight - Marry your daughter lyrics.mp3" type="audio/mp3">
+</audio>
+<div id="musicaAtual" class="mensagem" style="margin-top: 10px;"></div>
+<div id="controlesMusica" class="controles-musica" style="display: none;">
+    <button onclick="musicaAnterior()">⏮ Anterior</button>
+    <button onclick="proximaMusica()">⏭ Próxima</button>
+</div>
+    <div class="mensagem">
+        <p>A nossa história continua a ser escrita com muito amor, carinho e felicidade.
+Que cada capítulo seja repleto de sorrisos, abraços e momentos inesquecíveis.
+Feliz Dia dos Namorados, meu momo! 💘🌹 ❤️</p>
+    </div>
+        
     </div>
 
-    <script>
-        const dataNamoro = new Date(2023, 9, 2); 
-        const dataNoivado = new Date(2025, 3, 5);
-
-        function calcularTempo(data) {
-            const agora = new Date();
-            const diferenca = agora - data;
-
-            const anos = Math.floor(diferenca / (1000 * 60 * 60 * 24 * 365));
-            const meses = Math.floor((diferenca % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
-            const dias = Math.floor((diferenca % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
-            const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
-
-            return `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos`;
-        }
-
-        function mostrarTempoNamoro() {
-            atualizarContador("contadorNamoro", dataNamoro);
-        }
-
-        function mostrarTempoNoivado() {
-            atualizarContador("contadorNoivado", dataNoivado);
-        }
-
-        function atualizarContador(id, data) {
-            function atualizar() {
-                const contador = document.getElementById(id);
-                contador.textContent = `Tempo juntos: ${calcularTempo(data)}`;
-                contador.classList.add("show");
-            }
-            atualizar();
-            setInterval(atualizar, 1000);
-        }
-
-        function mostrarAlbum() {
-            const album = document.getElementById("album");
-            album.style.display = "flex";
-            setTimeout(() => {
-                album.classList.add("show");
-            }, 100);
-        }
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
