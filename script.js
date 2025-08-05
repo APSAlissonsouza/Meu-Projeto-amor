@@ -1,3 +1,4 @@
+
 // 📅 Datas importantes
 const dataNamoro = new Date(2023, 9, 2);   // Outubro (mês 9)
 const dataNoivado = new Date(2025, 3, 5);  // Abril (mês 3)
